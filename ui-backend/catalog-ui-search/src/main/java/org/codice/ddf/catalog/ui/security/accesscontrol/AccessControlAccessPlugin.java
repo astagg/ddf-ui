@@ -92,12 +92,11 @@ public class AccessControlAccessPlugin implements AccessPlugin {
               || metacard.getTags().contains(ATTRIBUTE_GROUP_TAG);
 
   private boolean isAccessControlUpdated(Metacard prev, Metacard updated) {
-    return !isAnyObjectNull(prev, updated)
-        && (ACCESS_ADMIN_HAS_CHANGED.apply(prev, updated)
-            || ACCESS_INDIVIDUALS_HAS_CHANGED.apply(prev, updated)
-            || ACCESS_INDIVIDUALS_READ_HAS_CHANGED.apply(prev, updated)
-            || ACCESS_GROUPS_HAS_CHANGED.apply(prev, updated)
-            || ACCESS_GROUPS_READ_HAS_CHANGED.apply(prev, updated));
+    return (ACCESS_ADMIN_HAS_CHANGED.apply(prev, updated)
+        || ACCESS_INDIVIDUALS_HAS_CHANGED.apply(prev, updated)
+        || ACCESS_INDIVIDUALS_READ_HAS_CHANGED.apply(prev, updated)
+        || ACCESS_GROUPS_HAS_CHANGED.apply(prev, updated)
+        || ACCESS_GROUPS_READ_HAS_CHANGED.apply(prev, updated));
   }
 
   private boolean isOwnerChanged(Metacard prev, Metacard updated) {
